@@ -21,7 +21,7 @@ fs.readdir("./commands/" , (err , files) => {
 
 })
 
-// BOT INITIALIZATION
+// Initialize Bot
 bot.on("ready", async  () => {
     console.log(`${bot.user.username} is online in ${bot.guilds.size} servers!`);
     bot.user.setActivity("Gamerz", {type: "WATCHING"});
@@ -30,7 +30,7 @@ bot.on("ready", async  () => {
     logchannel.send(`${bot.user.username} loaded now!`);
 });
 
-//  GUILD MEMBER ADD
+//  Guild Member Add
 bot.on("guildMemberAdd" , member => {
 
     member.guild.channels.get('464823082180411408').setName(`Total Users: ${member.guild.memberCount}`)
@@ -40,7 +40,7 @@ bot.on("guildMemberAdd" , member => {
     member.guild.channels.get('464823151474507776').setName(`Bot Count: ${bots}`)
 });
 
-//  GUILD MEMBER REMOVE
+//  Guild Member Remove
 bot.on("guildMemberRemove" , member => {
     
     member.guild.channels.get('464823082180411408').setName(`Total Users: ${member.guild.memberCount}`)
@@ -63,7 +63,7 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot , message , args , prefix);
 
 
-  // PING COMMAND
+  //Ping Command
   if(cmd === `${prefix}ping`){
     let m = await message.channel.send("Pinging...")
     m.edit(`⏱ Round-Trip: \`${m.createdAt - message.createdTimestamp}ms\` \n 💓 Heartbeat: \`${Math.round(bot.ping)}ms\``);
