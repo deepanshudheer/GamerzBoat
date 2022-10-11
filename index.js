@@ -68,7 +68,6 @@ bot.on("message", async message => {
     let m = await message.channel.send("Pinging...")
     m.edit(`⏱ Round-Trip: \`${m.createdAt - message.createdTimestamp}ms\` \n 💓 Heartbeat: \`${Math.round(bot.ping)}ms\``);
   };
-
 });
 
 bot.login(process.env.token);
